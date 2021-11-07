@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Add Bid Value</h1>
+<div mat-dialog-content>
+    <mat-form-field>
+        <input matInput type="text" [(ngModel)]="amount" placeholder="input value">
+    </mat-form-field>
+    <br/>
+    <button mat-button [mat-dialog-close]="amount" cdkFocusInitial>Add</button>
+    <!-- <a  href="showAllBids"></a> -->
+</div>

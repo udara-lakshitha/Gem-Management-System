@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Account Details</h1>
+<div mat-dialog-content>
+    <div>
+        <p>Name : {{user[0].Name}}</p>
+        <p>Email : {{user[0].Email}}</p>
+        <p>Contact Number : {{user[0].ContactNumber}}</p>
+        <p>ID NUmber : {{user[0].IdNumber}}</p>
+        <p>Address : {{user[0].Address}}</p>
+    </div>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Done</button>
+    <!-- <a  href="showAllBids"></a> -->
+</div>

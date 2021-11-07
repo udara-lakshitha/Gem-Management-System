@@ -1,0 +1,31 @@
+.card{
+  padding-left: 5%;
+  border-radius: 15px;
+  border-color: grey;
+}
+
+.card-img-top{
+    max-width: 300px;
+    margin-top: 10px;
+    border-radius: 15px;
+}
+
+#cards{
+    padding-top: 5%;
+}
+
+.card-columns{
+    
+    margin-top: 40px;
+}
+
+.btn{
+    margin: 5px;
+}
+
+
+
+#gems-column{
+    position: absolute;
+    right: 40px;
+}

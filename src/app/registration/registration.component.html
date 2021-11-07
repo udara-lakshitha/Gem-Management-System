@@ -1,0 +1,124 @@
+<mat-tab-group animationDuration="0ms">
+    <mat-tab class="tab" label="Admin Sign Up">
+        <form [formGroup]="AdminRegForm" >
+            <br> 
+            <div class="er" *ngIf="AdminRegForm.controls.CompanyId.errors?.pattern"> 
+              Company Id is <strong>incorrect</strong>
+            </div>
+            <mat-form-field appearance="fill">
+                <mat-label>Company Id</mat-label>
+                <input type="text" matInput formControlName="CompanyId" pattern ="[0-9]+[0-9]+[0-9]+[\#]+[A-Z]+[A-Z]+[A-Z]+[\@]" placeholder="Enter your Company Id">
+            <mat-error>Company Id is <strong>Required</strong></mat-error>
+            </mat-form-field><br>
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input type="text" matInput formControlName="Name" placeholder="Enter your name.">
+                <mat-error >
+                  Your Name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field><br>
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput formControlName="Email" placeholder="Enter your email.">
+                <mat-error >Email Required</mat-error>
+            </mat-form-field><br>
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password" placeholder="This is an one time password.">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error >
+                    Password is <strong>required</strong>
+                  </mat-error>
+            </mat-form-field><br>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Contact Number</mat-label>
+                <input matInput type="number" maxlength="10" formControlName="ContactNumber" placeholder="Ex. 0714522369">
+                <mat-error >
+                  Contact number is <strong>required</strong>
+                </mat-error>
+            </mat-form-field><br>
+            <mat-form-field appearance="fill">
+                <mat-label>NIC</mat-label>
+                <input type="text" matInput formControlName="IdNumber" placeholder="Enter your National Identity Card Number.">
+                <mat-error >
+                  NIC is <strong>required</strong>
+                </mat-error>
+            </mat-form-field><br>
+            <mat-form-field appearance="fill">
+                <mat-label>Address</mat-label>
+                <textarea matInput formControlName="Address" placeholder="Enter your Address"></textarea>
+                <mat-error >
+                  Address is <strong>required</strong>
+                </mat-error>
+            </mat-form-field><br>
+           
+            <button mat-raised-button type="button" class="save" id="size" [disabled]="!AdminRegForm.valid" (click)="onAdminRegSave()">Save</button>
+            <button mat-raised-button type="reset" class="canceltwo" id="size" data-dismiss="modal">Cancel</button>
+          </form>  
+    </mat-tab>
+    <mat-tab label="User Sign Up">
+        <form [formGroup]="UserRegForm" >  
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input type="text" matInput formControlName="Name" placeholder="Enter your name.">
+                <mat-error >
+                  Your Name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field><br>
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput formControlName="Email" placeholder="Enter your email.">
+                <mat-error>Email Required</mat-error>
+            </mat-form-field><br>
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password" placeholder="This is an one time password.">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error >
+                    Password is <strong>required</strong>
+                  </mat-error>
+            </mat-form-field><br>
+            <mat-form-field appearance="fill">
+              <mat-label>Contact Number</mat-label>
+              <input matInput type="number" maxlength="10" formControlName="ContactNumber" placeholder="Ex. 0714522369">
+              <mat-error >
+                Contact number is <strong>required</strong>
+              </mat-error>
+          </mat-form-field><br>
+            <mat-form-field appearance="fill">
+                <mat-label>NIC</mat-label>
+                <input type="text" matInput formControlName="IdNumber" placeholder="Enter your National Identity Card Number.">
+                <mat-error >
+                  NIC is <strong>required</strong>
+                </mat-error>
+            </mat-form-field><br>
+            <mat-form-field appearance="fill">
+                <mat-label>Address</mat-label>
+                <textarea matInput formControlName="Address" placeholder="Enter your Address"></textarea>
+                <mat-error >
+                  Address is <strong>required</strong>
+                </mat-error>
+            </mat-form-field><br>
+            <mat-form-field appearance="fill">
+                <mat-label>Select a role</mat-label>
+                <mat-select formControlName="Role">
+                  <mat-option value="buyer">Buyer</mat-option>
+                  <mat-option value="seller">Seller</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+           <!--{{this.UserRegForm.value | json }} -->
+           
+            <button mat-raised-button type="button" class="save" id="size" [disabled]="!UserRegForm.valid" (click)="onUserRegSave()">Save</button>
+            <button mat-raised-button type="reset" class="canceltwo" id="size" data-dismiss="modal">Cancel</button>
+          </form> 
+    </mat-tab>
+    
+  </mat-tab-group>
+  

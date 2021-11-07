@@ -1,0 +1,160 @@
+
+<html>
+    <head>
+        <style>
+            table.center{
+              margin-left: auto;
+              margin-right: auto;
+            }
+
+            h2 {
+  text-align: center;
+}
+
+table{
+    
+    width: 100%;
+}
+hr.solid {
+  border-top: 3px solid #bbb;
+}
+
+        </style>
+     
+    </head>
+    
+    <body>
+        <app-navbar></app-navbar>
+        
+        <br>
+        <label class="topic">Welcome to Admin view...!</label>
+
+
+
+ <br><br>
+
+<br>
+<hr class="solid">
+
+<table >
+    <tr>
+        <th>
+            
+            <nav class="navbar navbar-expand-sm bg light navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button routerLink="/newseller"
+                class="btn btn-info"Button>New Seller Requests</button>
+            </li>
+        </ul>
+    </nav>
+        </th>
+        <th>
+            
+            <nav class="navbar navbar-expand-sm bg light navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button routerLink="/newuser"
+                class="btn btn-info"Button>New Buyer Requests</button>
+            </li>
+        </ul>
+    </nav>
+        </th>
+        
+    <th>
+
+    <nav class="navbar navbar-expand-sm bg light navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button routerLink="/fixed"
+                class="btn btn-info"Button>New Fixed Gem Requests</button>
+            </li>
+        </ul>
+    </nav>
+    </th>
+
+    <th>
+
+        <nav class="navbar navbar-expand-sm bg light navbar-dark">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <button routerLink="/auction"
+                    class="btn btn-info"Button>New Auction Gem Requests</button>
+                </li>
+            </ul>
+        </nav>
+        </th>
+
+    <th>
+
+    <nav class="navbar navbar-expand-sm bg light navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button routerLink="/expiredgem"
+                class="btn btn-info"Button>Outdated Gems</button>
+            </li>
+        </ul>
+    </nav>
+    </th>
+    <th>
+
+    <nav class="navbar navbar-expand-sm bg light navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button routerLink="/lowrateuser"
+                class="btn btn-info"Button>Low Rate Users</button>
+            </li>
+        </ul>
+    </nav>
+    </th>
+    <th>
+
+        <nav class="navbar navbar-expand-sm bg light navbar-dark">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <button routerLink="/meeting"
+                    class="btn btn-info"Button>New Meeting Requests</button>
+                </li>
+            </ul>
+        </nav>
+        </th>
+        <th>
+    
+        </th>
+        
+    </tr>
+    <router-outlet></router-outlet>
+
+<br>
+</table>
+<br>
+
+
+
+
+
+        <table class="table table-striped" >
+            <thead>
+                <th>MeetingId</th>
+                <th>GemId</th>
+                <th>BuyerId</th>
+                <th>Arrange</th>
+                <th>Reject</th>
+            </thead>
+            <tbody>
+                <tr *ngFor ="let dataItem of TempMeeting ">
+                    <td>{{dataItem.MeetingId}}</td>
+                    <td>{{dataItem.GemId}}</td>
+                    <td>{{dataItem.SellerId}}</td>
+                    <td><button class="btn btn-info" type="button"
+                        (click)=ArrangeaddClick(dataItem)>Arrange</button></td>
+                    <td> <button class="btn btn-danger" type="button"
+                        (click)="deleteClick(dataItem)">Reject</button> </td>
+                    
+                </tr>
+            </tbody> 
+        </table>
+        
+
+    </body>
+</html>

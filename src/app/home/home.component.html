@@ -1,0 +1,190 @@
+<app-navbar></app-navbar>
+
+<div class="row">
+    <div class="col-md-2">
+        <div class="container" id="sidebar">
+            <h2>Filter Gems</h2>
+            <br>
+        
+            <div class="dropdown">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    Gem Categories
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item"  *ngFor="let item of Categories" (click)="filterByCategory(item)">{{item}}</a>
+                </div>
+            </div>
+        
+            <br>
+        
+            <div class="dropdown">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    Filter by color
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item"  *ngFor="let item of Colors" (click)="filterByColor(item)">{{item}}</a>
+                </div>
+            </div>
+        
+            <br>
+        
+            <div>
+                <label for="value filter">Filter by value: </label>
+                <form class="form-inline">
+                    <input type="text" class="form-control" placeholder="min price" (change)="OnInputMinValue($event)">
+                    <input type="text" class="form-control" placeholder="max price" (change)="OnInputMaxValue($event)">
+                    <button type="submit" class="btn btn-primary" (click)="filterByPrice()">Apply</button>
+        
+                </form>
+            </div>
+        
+            <br>
+        
+            <div>
+                <label for="weight filter">Filter by weight: </label>
+                <form class="form-inline">
+                    <input type="text" class="form-control" placeholder="min weight" (change)="OnInputMinWeight($event)">
+                    <input type="text" class="form-control" placeholder="max weight" (change)="OnInputMaxWeight($event)">
+                    <button type="submit" class="btn btn-primary" (click)="filterByWeight()">Apply</button>
+                </form>
+            </div>
+        
+            <br>
+        </div>
+    </div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-5">
+                <mat-card class="border border-danger">
+                    <mat-card-title>Fixed gems</mat-card-title>
+                    <mat-card-content>
+                        <div class="card-columns">
+                            <div *ngFor="let dataItem of temparyGems_fixed" class="card" >
+                                <img class="card-img-top" src="{{dataItem.Images1}}"
+                                            alt="Card image"  >
+                                <!-- <div class="row">
+                                    <div class="col-md-4">
+                                        <img class="card-img-top" src="{{dataItem.Images1}}"
+                                            alt="Card image"  >
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img class="card-img-top" src="{{dataItem.Images2}}"
+                                            alt="Card image"  >
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img class="card-img-top" src="{{dataItem.Images3}}"
+                                            alt="Card image"  >
+                                    </div>
+                                </div> -->
+                                <div class="card-body">
+                                    <div class="container justify-content-center">
+                                        <h4 class="card-title text-danger">{{dataItem.GemType}}</h4>
+                                        <p class="text-danger">Color: {{dataItem.Color}}</p>
+                                        <p class="text-danger">Weight: {{dataItem.Weight}}</p>
+                                        <h5 class="text-danger">{{dataItem.BaseValue}} LKR</h5>
+                                        
+                                        <img class="card-img-top" src="{{dataItem.GemCertificate}}"
+                                            alt="Card image"  >
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" (click)="onOpen()">Buy</button>
+                                    <!-- <button class="btn btn-info" type="button" (click)="acceptGem(dataItem)" style="margin-right: 25px;">Add</button> -->
+                                    <!-- <button class="btn btn-danger" type="button" (click)="rejectGem(dataItem)" style="margin-right: 25px;">Reject</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="col-md-5">
+                <mat-card class="border border-danger">
+                    <mat-card-title>Auction gems</mat-card-title>
+                    <mat-card-content>
+                        <div class="card-columns">
+                            <div *ngFor="let dataItem of temparyGems_auction" class="card" >
+                                <img class="card-img-top" src="{{dataItem.Images1}}"
+                                            alt="Card image"  >
+                                <!-- <div class="row">
+                                    <div class="col-md-4">
+                                        <img class="card-img-top" src="{{dataItem.Images1}}"
+                                            alt="Card image"  >
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img class="card-img-top" src="{{dataItem.Images2}}"
+                                            alt="Card image"  >
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img class="card-img-top" src="{{dataItem.Images3}}"
+                                            alt="Card image"  >
+                                    </div>
+                                </div> -->
+                                <div class="card-body">
+                                    <div class="container justify-content-center">
+                                        <h4 class="card-title text-danger">{{dataItem.GemType}}</h4>
+                                        <p class="text-danger">Color: {{dataItem.Color}}</p>
+                                        <p class="text-danger">Weight: {{dataItem.Weight}}</p>
+                                        <h5 class="text-danger">{{dataItem.BaseValue}} LKR</h5>
+                                        <p class="text-danger">Expired: {{dataItem.ExpiredDate | date}}</p>
+                                        <img class="card-img-top" src="{{dataItem.GemCertificate}}"
+                                            alt="Card image"  >
+                                    </div>
+                                    <!-- <mat-form-group [formGroup]="form"> -->
+                                        <!-- <mat-form-field class="example-form-field" appearance="fill">
+                                            <mat-label>Added Date</mat-label>
+                                            <input matInput [matDatepicker]="picker1" [(ngModel)]="dataItem.AddedDate" required>
+                                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker1></mat-datepicker>
+                                        </mat-form-field>
+                                        <br/>
+                                        <mat-form-field class="example-form-field" appearance="fill">
+                                            <mat-label>Expired Date</mat-label>
+                                            <input matInput [matDatepicker]="picker2" [(ngModel)]="dataItem.ExpiredDate"  required>
+                                            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker2></mat-datepicker>
+                                        </mat-form-field> -->
+                                    <!-- </mat-form-group> -->
+                                    <br/>
+                                    <button type="submit" class="btn btn-primary" (click)="bitpressed(dataItem)">Bid</button>
+                                    <!-- <button class="btn btn-info" type="button" (click)="acceptAuctionGem(dataItem)" style="margin-right: 25px;">Add</button> -->
+                                    <!-- <button class="btn btn-danger" type="button" (click)="rejectGem(dataItem)" style="margin-right: 25px;">Reject</button> -->
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col-md-6">
+                <div class="container" id="gems-column">
+                    <div class="card-columns">
+                
+                        <div *ngFor="let dataItem of gemList" class="card" style="width: 350px;">
+                            
+                            <div class="card-body">
+                                <div class="container justify-content-center">
+                                    <h4 class="card-title">{{dataItem.GemType}}</h4>
+                                    <p>Color: {{dataItem.Color}}</p>
+                                    <p>Weight: {{dataItem.Weight}}</p>
+                                    <h5 class="text-danger">{{dataItem.BaseValue}} LKR</h5>
+                                    <button type="submit" class="btn btn-primary" (click)="bitpressed(dataItem)">Bid</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <!-- <input type="text" class="form-control" placeholder="input value" *ngIf="bitPressed" (change)="getAmount($event)"> -->
+                        <!-- <a  href="showAllBids"><button type="submit" class="btn btn-primary" *ngIf="bitPressed" (click)="addToCart()">Add to cart</button></a> -->
+                    <!-- </div>
+                </div>
+            </div> -->
+            <!-- <div class="col-md-6">
+                
+            </div> -->
+        <!-- </div>  -->
+    </div>
+</div>
+
+<router-outlet></router-outlet>

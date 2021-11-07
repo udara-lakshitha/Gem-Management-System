@@ -1,0 +1,39 @@
+#sidebar{
+    background-color: rgb(199, 195, 195);
+    position: absolute;
+    left: 50px;
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 15px;
+}
+#cards{
+    padding-top: 5%;
+}
+
+.card-columns{
+    
+    margin-top: 40px;
+}
+
+.btn{
+    margin: 5px;
+}
+.col-md-5{
+    margin-top: 40px;
+}
+
+.logoutbtn{
+    background-color: rgb(255, 41, 41);
+    color: rgb(255, 255, 255);
+    width: auto;
+    font-size: 1rem;
+    margin-inline-start: 90rem;
+    border-radius: 0.2rem;
+}
+
+
+
+#gems-column{
+    position: absolute;
+    right: 40px;
+}

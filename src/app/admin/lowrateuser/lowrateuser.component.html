@@ -1,0 +1,167 @@
+<body>
+    <app-navbar></app-navbar>
+        <br>
+        
+        <label class="topic">Welcome to Admin view...!</label>
+
+
+
+ <br><br>
+
+<br>
+<hr class="solid">
+
+<table >
+    <tr>
+        <th>
+            
+            <nav class="navbar navbar-expand-sm bg light navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button routerLink="/newseller"
+                class="btn btn-info"Button>New Seller Requests</button>
+            </li>
+        </ul>
+    </nav>
+        </th>
+        <th>
+            
+            <nav class="navbar navbar-expand-sm bg light navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button routerLink="/newuser"
+                class="btn btn-info"Button>New Buyer Requests</button>
+            </li>
+        </ul>
+    </nav>
+        </th>
+        <th>
+
+    <nav class="navbar navbar-expand-sm bg light navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button routerLink="/fixed"
+                class="btn btn-info"Button>New Fixed Gem Requests</button>
+            </li>
+        </ul>
+    </nav>
+    </th>
+    <th>
+
+        <nav class="navbar navbar-expand-sm bg light navbar-dark">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <button routerLink="/auction"
+                    class="btn btn-info"Button>New Auction Gem Requests</button>
+                </li>
+            </ul>
+        </nav>
+        </th>
+
+    <th>
+
+    <nav class="navbar navbar-expand-sm bg light navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button routerLink="/expiredgem"
+                class="btn btn-info"Button>Outdated Gems</button>
+            </li>
+        </ul>
+    </nav>
+    </th>
+    <th>
+
+    <nav class="navbar navbar-expand-sm bg light navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button routerLink="/lowrateuser"
+                class="btn btn-info"Button>Low Rate Users</button>
+            </li>
+        </ul>
+    </nav>
+    </th>
+    <th>
+    <nav class="navbar navbar-expand-sm bg light navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button routerLink="/meeting"
+                class="btn btn-info"Button>New Meeting Requests</button>
+            </li>
+        </ul>
+    </nav>
+        </th>
+        
+    </tr>
+
+<br>
+</table>
+<br>
+
+<div class="content">
+    <div class="row">
+        <div class="col-md-6">
+            <mat-card>
+                <mat-card-title>Low rate buyers</mat-card-title>
+                <mat-card-content>
+                    <table class="table table-striped" >
+                        <thead>
+                            <th>UserId</th>
+                            <th>Name</th>
+                            <!-- <th>Email</th> -->
+                            <th>Contact Number</th>
+                            <th>IdNumber</th>
+                            <th>Rate</th>
+                            <!-- <th>Address</th> -->
+                            <th>Reject</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor ="let dataItem of lowratebuyers">
+                                <td>{{dataItem.BuyerId}}</td>
+                                <td>{{dataItem.Name}}</td>
+                                <!-- <td>{{dataItem.Email}}</td> -->
+                                <td>{{dataItem.ContactNumber}}</td>
+                                <td>{{dataItem.IdNumber}}</td>
+                                <td>{{dataItem.Rate}}</td>
+                                <!-- <td>{{dataItem.Address}}</td> -->
+                                <td> <button class="btn btn-danger" type="button" (click)="blockBuyer(dataItem)">Reject</button> </td> 
+                            </tr>
+                        </tbody> 
+                    </table>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col-md-6">
+            <mat-card>
+                <mat-card-title>Low rate sellers</mat-card-title>
+                <mat-card-content>
+                    <table class="table table-striped ">
+                        <thead>
+                            <th>UserId</th>
+                            <th>Name</th>
+                            <!-- <th>Email</th> -->
+                            <th>Contact Number</th>
+                            <th>IdNumber</th>
+                            <th>Rate</th>
+                            <!-- <th>Address</th> -->
+                            <th>Reject</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor ="let dataItem of lowratesellers">
+                                <td>{{dataItem.SellerId}}</td>
+                                <td>{{dataItem.Name}}</td>
+                                <!-- <td>{{dataItem.Email}}</td> -->
+                                <td>{{dataItem.ContactNumber}}</td>
+                                <td>{{dataItem.IdNumber}}</td>
+                                <td>{{dataItem.Rate}}</td>
+                                <!-- <td>{{dataItem.Address}}</td> -->
+                                <td> <button class="btn btn-danger" type="button" (click)="blockSeller(dataItem)">Reject</button> </td> 
+                            </tr>
+                        </tbody> 
+                    </table>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
+</body>
+

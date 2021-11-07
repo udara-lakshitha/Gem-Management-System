@@ -1,0 +1,32 @@
+<div class="container" id="gems-column">
+    <div class="card-columns">
+
+        <div *ngFor="let dataItem of GemList" class="card" style="width: 350px;">
+            <img class="card-img-top" [src]="getImage()"
+                alt="Card image" />
+            <div class="card-body">
+                <div class="container justify-content-center">
+                    <h4 class="card-title">{{dataItem.GemType}}</h4>
+                    <p>Color: {{dataItem.Color}}</p>
+                    <p>Weight: {{dataItem.Weight}}</p>
+                    <h5 class="text-danger">{{dataItem.BaseValue}} LKR</h5>
+                    <button type="submit" class="btn btn-primary" (click)="bitpressed(dataItem)">Bid</button>
+                </div>
+                
+            </div>
+        </div>
+        <input type="text" class="form-control" placeholder="input value" *ngIf="bitPressed" (change)="getAmount($event)">
+        <a  href="showAllBids"><button type="submit" class="btn btn-primary" *ngIf="bitPressed" (click)="addToCart()">Add to cart</button></a>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,124 @@
+<!-- <body>
+        <br>
+<label class="topic">Welcome to Admin view...!</label>
+<br>
+<button mat-raised-button class="logoutbtn" (click)="logOut()">Log Out</button>
+
+ <br><br>
+
+<br>
+
+<hr class="solid">
+
+<table >
+    <tr>
+        <th>
+            
+            <nav class="navbar navbar-expand-sm bg light navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button routerLink="/newseller"
+                class="btn btn-info"Button>New Seller Requests</button>
+            </li>
+        </ul>
+    </nav>
+        </th>
+        <th>
+            
+            <nav class="navbar navbar-expand-sm bg light navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button routerLink="/newuser"
+                class="btn btn-info"Button>New Buyer Requests</button>
+            </li>
+        </ul>
+    </nav>
+        </th>
+        <th>
+
+    <nav class="navbar navbar-expand-sm bg light navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button routerLink="/newgem"
+                class="btn btn-info" (click)="getGems()">New Gem Requests</button>
+            </li>
+        </ul>
+    </nav>
+    </th>
+
+    <th>
+
+    <nav class="navbar navbar-expand-sm bg light navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button routerLink="/expiredgem"
+                class="btn btn-info"Button>Expired Gems</button>
+            </li>
+        </ul>
+    </nav>
+    </th>
+    <th>
+
+    <nav class="navbar navbar-expand-sm bg light navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button routerLink="/lowrateuser"
+                class="btn btn-info"Button>Low Rate Users</button>
+            </li>
+        </ul>
+    </nav>
+    </th>
+    <th>
+    <nav class="navbar navbar-expand-sm bg light navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button routerLink="/meeting"
+                class="btn btn-info"Button>New Meeting Requests</button>
+            </li>
+        </ul>
+    </nav>
+        </th>
+        
+    </tr>
+
+    <router-outlet></router-outlet>
+<br>
+</table>
+<br>
+<table class="table table-striped" >
+            <thead>
+                <th>Temp Id</th>
+                <th>Gem type</th>
+                <th>Weight</th>
+                <th>Color</th>
+                <th>Base Value</th>
+                <th>Seller Id</th>
+                <th>Shape</th>
+                <th>Images</th>
+                <th>Gem Certificate</th>
+                <th>Accept</th>
+              <th>Reject</th>
+            </thead>
+            <tbody>
+                <tr *ngFor ="let dataItem of temparyGems; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{dataItem.GemType}}</td>
+                    <td>{{dataItem.Weight}}</td>
+                    <td>{{dataItem.Color}}</td>
+                    <td>{{dataItem.BaseValue}}</td>
+                    <td></td>
+                    <td>{{dataItem.Shape}}</td>
+                    <td></td>
+                    <td></td>
+                    
+                    <td><button class="btn btn-info" type="button" (click)="acceptGem(dataItem)">Add</button></td>
+                    <td> <button class="btn btn-danger" type="button" (click)="rejectGem(dataItem)">Reject</button> </td>
+                    
+                </tr>
+            </tbody> 
+        </table>
+     </body> -->
+<app-navbar></app-navbar>
+<app-fixed></app-fixed>
+<app-auction></app-auction>
+<router-outlet></router-outlet>

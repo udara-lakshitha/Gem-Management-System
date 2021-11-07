@@ -1,0 +1,33 @@
+.tab{
+    width:2500px;
+    align-items: center;
+}
+
+mat-form-field{
+    width:100%;
+}
+
+.save{
+    margin: 0.25rem;
+    background-color:rgb(19, 167, 44) ;  
+    color: #FFF;
+}
+.er{
+    color:#f00;
+    
+}
+
+.cancel{
+    margin: 0.25rem;
+    background-color: rgb(253, 45, 45);    
+    color: #FFF;
+    margin-inline-start: 12rem;
+}
+
+
+.canceltwo{
+    margin: 0.25rem;
+    background-color: rgb(253, 45, 45);    
+    color: #FFF;
+    margin-inline-start: 11.5rem;
+}

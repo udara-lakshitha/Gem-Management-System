@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+
+<table class="table table-striped" >
+    <thead>
+        <th>Number</th>
+        <th>Gem Id</th>
+        <th>Bid Value</th>
+        
+        <th></th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor ="let dataItem of bid; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{dataItem.GemId}}</td>
+            <td>{{dataItem.BidValue}}</td>
+            
+            <td><button type="submit" class="btn btn-primary" [disabled]="dataItem.GemId!=enableGemID"  (click)="onOpen()">Buy</button></td>
+            <td><button type="submit" class="btn btn-primary" [disabled]="dataItem.GemId!=enableGemID" (click)="requestMeeting(dataItem)">Request a meeting</button></td>
+        </tr>
+    </tbody> 
+</table>

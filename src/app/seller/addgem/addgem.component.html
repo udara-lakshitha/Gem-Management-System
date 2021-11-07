@@ -1,0 +1,146 @@
+
+<!-- <html>
+    <head>
+    <style>
+    
+    
+    table{
+        
+        width: 100%;
+    }
+    
+
+    form{
+        text-align:left;
+        align-self: center;
+        
+    } -->
+    
+    <!-- </style>
+    </head>
+    <body> -->
+      <body>
+        <app-navbar></app-navbar>
+
+        <br>
+        <label class="topic">Welcome to Seller view...!</label>
+        <br>
+        
+        
+        
+         <br><br>
+        
+        <br>
+        <hr class="solid">
+        
+        <br>
+        
+  
+  <mat-card class="example-card">
+    <mat-card-content>
+      <mat-form-group [formGroup]="form">
+      <mat-form-field appearance="fill">
+        <mat-label>Gem Type</mat-label>
+        <mat-select [(ngModel)]="addGem.GemType" formControlName="gemtype" required>
+          <mat-option *ngFor='let i of gemType' [value]="i">{{i}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br/>
+      <mat-form-field appearance="fill">
+        <mat-label>Color</mat-label>
+        <mat-select [(ngModel)]="addGem.Color" formControlName="color" required>
+          <mat-option *ngFor='let i of color' [value]="i">{{i}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br/>
+      <mat-form-field appearance="fill">
+        <mat-label>Weight</mat-label>
+        <input matInput name="weight" placeholder="weight" formControlName="weight" [(ngModel)]="addGem.Weight" required>
+      </mat-form-field>
+      <br/>
+      <mat-form-field appearance="fill">
+        <mat-label>Base Value</mat-label>
+        <input matInput name="base" placeholder="base value" formControlName="basevalue" [(ngModel)]="addGem.BaseValue" required>
+      </mat-form-field>
+      <br/>
+      <mat-form-field appearance="fill">
+        <mat-label>Shape</mat-label>
+        <input matInput name="shape" placeholder="shape" formControlName="shape" [(ngModel)]="addGem.Shape" required>
+      </mat-form-field>
+      <br/>
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="true" (change)="changeToFixed()">Fixed</mat-radio-button>
+        <mat-radio-button  value="false" (change)="changeToAuction()">Auction</mat-radio-button>
+      </mat-radio-group>
+      <br/>
+      <mat-label>Image</mat-label><br/>
+      <div class="row">
+        <div class="col-md-4">
+          <img [src]="imgurl1" style="width: 200px; height: 200px;"><br/>
+          <input type="file" #image accept="img/*" (change)="imageInput1($event)">
+        </div>
+        <div class="col-md-4">
+          <img [src]="imgurl2" style="width: 200px; height: 200px;"><br/>
+          <input type="file" #image accept="img/*" (change)="imageInput2($event)">
+        </div>
+        <div class="col-md-4">
+          <img [src]="imgurl3" style="width: 200px; height: 200px;"><br/>
+          <input type="file" #image accept="img/*" (change)="imageInput3($event)">
+        </div>
+      </div>
+      <br/>
+      <mat-label>Certificate</mat-label><br/>
+        <img [src]="certificateurl" style="width: 200px; height: 200px;"><br/>
+        <input type="file" #image accept="certi/*" (change)="certificateInput($event)">
+      <br/><br/>
+      <button type="submit" class="btn btn-primary" (click)="showToasterSuccess()">Submit</button>
+      </mat-form-group>
+    </mat-card-content>
+    <hr class="solid">
+  </mat-card>
+  
+</body>
+  
+  
+      <!-- <table>
+          <td>                                           </td>
+          <td>
+              
+          <form #userForm="ngForm">
+  
+            
+              <div class="form-group">
+                  <label >Gem Type</label>
+                  <select name="type" class="form-control" [(ngModel)]="addGem.GemType">
+                    <option *ngFor='let i of gemType' [value]="i">{{i}}</option>
+                  </select>
+                </div>
+              <div class="form-group">
+                  <label >Color</label>
+                  <select name="color" class="form-control" [(ngModel)]="addGem.Color">
+                    <option *ngFor='let i of color' [value]="i">{{i}}</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label >Weight</label>
+                  <input type="text" class="form-control" name="weight" placeholder="weight" [(ngModel)]="addGem.Weight" required>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Base Value</label>
+                  <input type="text" class="form-control" name="base" placeholder="base value" [(ngModel)]="addGem.BaseValue" required>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Shape</label>
+                  <input type="text" class="form-control" name="shape" placeholder="shape" [(ngModel)]="addGem.Shape">
+                </div>
+                
+              
+              <button type="submit" class="btn btn-primary" (click)="showDetails()">Submit</button>
+            </form>
+          </td>
+          <td>                                             </td>
+      </table>
+          </body>
+          </html> -->
+  
+  

@@ -1,0 +1,70 @@
+
+  <label class="topic">HELLO!</label> <br>
+  <img src="https://cdn2.iconfinder.com/data/icons/web-and-apps-interface/32/User-512.png" class="imge">
+        <form  [formGroup]="LoginForm">  
+          <br> 
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput formControlName="Email" placeholder="Enter your email." required>
+                <mat-error > Email is <strong>required</strong></mat-error>
+            </mat-form-field><br>
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password" placeholder="Enter your password.">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error >
+                    Password is <strong>required</strong>
+                  </mat-error>
+            </mat-form-field><br> 
+           <!-- {{this.LoginForm.value | json }} -->
+            <div class="row d-flex justify-content-center">
+                <button type="button"  mat-dialog-close (click)="login()" [disabled]="!LoginForm.valid" class="btn">LogIn</button>
+            </div>
+              <br>
+              <div class="row d-flex justify-content-center">
+                <!-- <div class="col-md-6">
+                    <a class="nav-link text-info" href="/#/forgot-password">Forgot password?</a><br>
+                </div> -->
+                <a class="nav-link text-info" href="/#/forgot-password">see Sellers who are active now?</a><br>
+              </div>
+        </form>
+
+   <!-- <mat-tab label="User Sign In">
+    <form name="UserLoginForm" (submit)="loginUser(UserLoginForm)" #UserLoginForm="ngForm">  
+      <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Select a role</mat-label>
+            <mat-select #Role="ngModel" required [(ngModel)]="Umodel.Role">
+              <mat-option value="buyer">Buyer</mat-option>
+              <mat-option value="seller">Seller</mat-option>
+            </mat-select>
+        </mat-form-field> 
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput [(ngModel)]="Umodel.Email" #Email="ngModel" name="Email" placeholder="Enter your email." required>
+            <mat-error > Email is <strong>required</strong></mat-error>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="Umodel.Password" #Password="ngModel" name="Password" placeholder="Enter your password.">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error > Password is <strong> required </strong> </mat-error>
+        </mat-form-field><br>
+         {{this.UserLoginForm.value | json }}   
+        <div class="row d-flex justify-content-center">
+            <button type="submit" [disabled]="!UserLoginForm.valid" class="btn btn-info btn-round">LogIn</button>
+          </div>
+          <br>
+          <div class="row d-flex justify-content-center">
+           <div class="col-md-6">
+                <a class="nav-link text-info" href="/#/forgot-password">Forgot password?</a><br>
+            </div> 
+            <a class="nav-link text-info" href="/#/forgot-password">Forgot password?</a><br>
+        </div>
+    </form>
+   </mat-tab> -->
+
